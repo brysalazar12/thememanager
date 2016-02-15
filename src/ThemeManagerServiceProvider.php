@@ -61,7 +61,8 @@ class ThemeManagerServiceProvider extends ServiceProvider
 				}
 
 				$currentGroup = config('theme.current_group');
-				$themeManager->setCurrentGroup($currentGroup);
+				if(is_null($themeManager->getCurrentGroup()))
+					$themeManager->setCurrentGroup($currentGroup);
 			}
 
 			$paths = $themeManager->getAllAvailablePaths();

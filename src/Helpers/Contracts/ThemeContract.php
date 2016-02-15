@@ -18,6 +18,8 @@ interface ThemeContract
 
 	public function setCurrentGroup($group);
 
+	public function getCurrentGroup();
+
 	public function asset($asset);
 
 	public function setThemes($group, $themes);

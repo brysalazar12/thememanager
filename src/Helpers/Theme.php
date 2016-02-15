@@ -117,4 +117,10 @@ class Theme implements ThemeContract
 	{
 		$this->themes[$group] = $themes;
 	}
+
+	public function getCurrentGroup()
+	{
+		return $this->currentGroup;
+	}
+
 }
