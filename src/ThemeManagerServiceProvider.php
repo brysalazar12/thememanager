@@ -4,6 +4,7 @@ use Illuminate\Support\ServiceProvider;
 use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
 use Mirage\ThemeManager\Helpers\Theme;
 use Illuminate\View\FileViewFinder;
+use Illuminate\View\Factory;
 
 /**
  * Description of ThemeManager
@@ -12,6 +13,8 @@ use Illuminate\View\FileViewFinder;
  */
 class ThemeManagerServiceProvider extends ServiceProvider
 {
+	protected $defer = false;
+
 	public function boot()
 	{
 		$basePath = __DIR__ . '/';
@@ -39,35 +42,52 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
 	public function provides()
 	{
-		return [ThemeContract::class];
+		return ['theme'];
 	}
 
     public function registerViewFinder()
     {
-        $this->app->bind('view.finder', function ($app) {
-			$themeManager = $app['theme'];
+        $this->app->bind(\Illuminate\Contracts\View\Factory::class, function ($app) {
+            $resolver = $app['view.engine.resolver'];
 
-			if($app['files']->exists(config_path('theme.php'))) {
-				$basePath = config('theme.basePath');
-				$themeManager->setBasePath($basePath);
-				$themes = array_keys(config('theme.themes'));
-				foreach($themes as $group => $theme) {
-					$themeManager->setThemes($group, $theme);
+			$app->bind('view.finder',function($app){
+
+				$themeManager = $app['theme'];
+
+				if($app['files']->exists(config_path('theme.php'))) {
+					$basePath = config('theme.basePath');
+					$themeManager->setBasePath($basePath);
+					$themes = array_keys(config('theme.themes'));
+					foreach($themes as $group => $theme) {
+						$themeManager->setThemes($group, $theme);
+					}
+
+					$currentGroup = config('theme.current_group');
+					if(is_null($themeManager->getCurrentGroup()))
+						$themeManager->setCurrentGroup($currentGroup);
+
+					$currentTheme = config('theme.current_theme');
+					$themeManager->set($currentTheme[$themeManager->getCurrentGroup()],
+							$themeManager->getCurrentGroup());
+
 				}
+				$paths = $themeManager->getAllAvailablePaths();
+				return new FileViewFinder($app['files'], $paths);
+			});
 
-				$currentThemes = config('theme.current_theme');
-				foreach($currentThemes as $group => $currentTheme) {
-					$themeManager->set($currentTheme,$group);
-				}
 
-				$currentGroup = config('theme.current_group');
-				if(is_null($themeManager->getCurrentGroup()))
-					$themeManager->setCurrentGroup($currentGroup);
-			}
+            $finder = $app['view.finder'];
 
-			$paths = $themeManager->getAllAvailablePaths();
+            $env = new Factory($resolver, $finder, $app['events']);
 
-            return new FileViewFinder($app['files'], $paths);
+            // We will also set the container instance on this view environment since the
+            // view composers may be classes registered in the container, which allows
+            // for great testable, flexible composers for the application developer.
+            $env->setContainer($app);
+
+            $env->share('app', $app);
+
+            return $env;
         });
     }
 }
