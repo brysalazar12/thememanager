@@ -1,0 +1,27 @@
+{
+	"name": "brysalazar12/thememanager",
+	"description": "Laravel 5 Theme Manager",
+    "keywords": [
+        "brysalazar12",
+        "laravel",
+        "mirage",
+        "theme manager",
+        "theme"
+    ],
+	"homepage": "https://github.com/brysalazar12/laravel-rbac",
+	"license": "MIT",
+    "authors": [
+        {
+            "name": "Bryan Salazar"
+        }
+    ],
+    "require": {
+        "php" : ">=5.6.0",
+        "laravel/framework": "5.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mirage\\ThemeManager\\": "src"
+        }
+    }
+}
