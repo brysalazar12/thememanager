@@ -12,8 +12,6 @@ use Illuminate\View\FileViewFinder;
  */
 class ThemeManagerServiceProvider extends ServiceProvider
 {
-	protected $defer = true;
-
 	public function boot()
 	{
 		$basePath = __DIR__ . '/';
@@ -41,7 +39,7 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
 	public function provides()
 	{
-		return ['theme'];
+		return [ThemeContract::class];
 	}
 
     public function registerViewFinder()
