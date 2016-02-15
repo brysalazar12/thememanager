@@ -41,7 +41,7 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
 	public function provides()
 	{
-		return [ThemeContract::class];
+		return ['theme'];
 	}
 
     public function registerViewFinder()
