@@ -66,10 +66,12 @@ class ThemeManagerServiceProvider extends ServiceProvider
 					if(is_null($themeManager->getCurrentGroup()))
 						$themeManager->setCurrentGroup($currentGroup);
 
-					$currentTheme = config('theme.current_theme');
-					$themeManager->set($currentTheme[$themeManager->getCurrentGroup()],
-							$themeManager->getCurrentGroup());
 
+					if(is_null($themeManager->getCurrentTheme($themeManager->getCurrentGroup()))) {
+						$currentTheme = config('theme.current_theme');
+						$themeManager->set($currentTheme[$themeManager->getCurrentGroup()],
+								$themeManager->getCurrentGroup());
+					}
 				}
 				$paths = $themeManager->getAllAvailablePaths();
 				return new FileViewFinder($app['files'], $paths);

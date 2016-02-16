@@ -38,6 +38,9 @@ class Theme implements ThemeContract
 	 */
 	public function getCurrentTheme($group)
 	{
+		if(!isset($this->currentTheme[$group]))
+			return null;
+
 		return $this->currentTheme[$group];
 	}
 
