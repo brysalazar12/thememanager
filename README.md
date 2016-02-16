@@ -3,7 +3,8 @@ Laravel 5 Theme Manager
 
 Via Composer
 ```
-composer require 'brysalazar12/thememanager:dev-master'
+composer require brysalazar12/thememanager
+composer update
 ```
 
 Add Service Provider to `config/app.php` in `providers` section
