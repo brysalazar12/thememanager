@@ -48,51 +48,31 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
     public function registerViewFinder()
     {
-//        $this->app->bind(\Illuminate\Contracts\View\Factory::class, function ($app) {
-//            $resolver = $app['view.engine.resolver'];
+		$this->app->bind('view.finder',function($app){
 
-			$this->app->bind('view.finder',function($app){
+			$themeManager = $app['theme'];
 
-				$themeManager = $app['theme'];
-
-				if($app['files']->exists(config_path('theme.php'))) {
-					$basePath = config('theme.basePath');
-					$themeManager->setBasePath($basePath);
-					$themes = array_keys(config('theme.themes'));
-					foreach($themes as $group => $theme) {
-						$themeManager->setThemes($group, $theme);
-					}
-
-					$currentGroup = config('theme.current_group');
-					if(is_null($themeManager->getCurrentGroup()))
-						$themeManager->setCurrentGroup($currentGroup);
-
-
-					if(is_null($themeManager->getCurrentTheme($themeManager->getCurrentGroup()))) {
-						$currentTheme = config('theme.current_theme');
-						$themeManager->set($currentTheme[$themeManager->getCurrentGroup()],
-								$themeManager->getCurrentGroup());
-					}
+			if($app['files']->exists(config_path('theme.php'))) {
+				$basePath = config('theme.basePath');
+				$themeManager->setBasePath($basePath);
+				$themes = array_keys(config('theme.themes'));
+				foreach($themes as $group => $theme) {
+					$themeManager->setThemes($group, $theme);
 				}
-				event('theme.view', new ThemeViewEvent());
-				$paths = $themeManager->getAllAvailablePaths();
-				return new FileViewFinder($app['files'], $paths);
-			});
+
+				$currentGroup = config('theme.current_group');
+				if(is_null($themeManager->getCurrentGroup()))
+					$themeManager->setCurrentGroup($currentGroup);
 
 
-//            $finder = $app['view.finder'];
-//
-//            $env = new Factory($resolver, $finder, $app['events']);
-//
-//            // We will also set the container instance on this view environment since the
-//            // view composers may be classes registered in the container, which allows
-//            // for great testable, flexible composers for the application developer.
-//            $env->setContainer($app);
-//
-//            $env->share('app', $app);
-//
-//			event('theme.view', new ThemeViewEvent());
-//            return $env;
-//        });
+				if(is_null($themeManager->getCurrentTheme($themeManager->getCurrentGroup()))) {
+					$currentTheme = config('theme.current_theme');
+					$themeManager->set($currentTheme[$themeManager->getCurrentGroup()],
+							$themeManager->getCurrentGroup());
+				}
+			}
+			$paths = $themeManager->getAllAvailablePaths();
+			return new FileViewFinder($app['files'], $paths);
+		});
     }
 }
