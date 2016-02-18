@@ -48,10 +48,10 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
     public function registerViewFinder()
     {
-        $this->app->bind(\Illuminate\Contracts\View\Factory::class, function ($app) {
-            $resolver = $app['view.engine.resolver'];
+//        $this->app->bind(\Illuminate\Contracts\View\Factory::class, function ($app) {
+//            $resolver = $app['view.engine.resolver'];
 
-			$app->bind('view.finder',function($app){
+			$this->app->bind('view.finder',function($app){
 
 				$themeManager = $app['theme'];
 
@@ -74,24 +74,25 @@ class ThemeManagerServiceProvider extends ServiceProvider
 								$themeManager->getCurrentGroup());
 					}
 				}
+				event('theme.view', new ThemeViewEvent());
 				$paths = $themeManager->getAllAvailablePaths();
 				return new FileViewFinder($app['files'], $paths);
 			});
 
 
-            $finder = $app['view.finder'];
-
-            $env = new Factory($resolver, $finder, $app['events']);
-
-            // We will also set the container instance on this view environment since the
-            // view composers may be classes registered in the container, which allows
-            // for great testable, flexible composers for the application developer.
-            $env->setContainer($app);
-
-            $env->share('app', $app);
-
-			event('theme.view', new ThemeViewEvent());
-            return $env;
-        });
+//            $finder = $app['view.finder'];
+//
+//            $env = new Factory($resolver, $finder, $app['events']);
+//
+//            // We will also set the container instance on this view environment since the
+//            // view composers may be classes registered in the container, which allows
+//            // for great testable, flexible composers for the application developer.
+//            $env->setContainer($app);
+//
+//            $env->share('app', $app);
+//
+//			event('theme.view', new ThemeViewEvent());
+//            return $env;
+//        });
     }
 }
