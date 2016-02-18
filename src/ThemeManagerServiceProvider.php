@@ -5,6 +5,7 @@ use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
 use Mirage\ThemeManager\Helpers\Theme;
 use Illuminate\View\FileViewFinder;
 use Illuminate\View\Factory;
+use Mirage\ThemeManager\Events\ThemeViewEvent;
 
 /**
  * Description of ThemeManager
@@ -89,6 +90,7 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
             $env->share('app', $app);
 
+			event('theme.view', new ThemeViewEvent());
             return $env;
         });
     }
