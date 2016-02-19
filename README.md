@@ -31,7 +31,13 @@ php artisan vendor:publish
 ```
 Check the config/theme.php for configuration
 
-If you want dynamic you can use Theme::set('theme_name',,'group_name')
+If you want dynamic you can use
+```
+php Theme::set('theme_name','group_name')->override();
+```
+
+Dynamic approach can override the static approach
+
 By default the theme path is located in resources/themes
 
 
