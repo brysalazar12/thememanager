@@ -29,7 +29,7 @@ If you want static configuration you can run
 ```php
 artisan vendor:publish
 ```
-Check the config/theme.php for configuration
+Check the **config/theme.php** for configuration
 
 If you want dynamic you can use
 ```php
