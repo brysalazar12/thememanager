@@ -1,6 +1,7 @@
 <?php namespace Mirage\ThemeManager\Helpers;
 
 use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
+use Illuminate\View\FileViewFinder;
 
 /**
  * Description of Theme
@@ -13,6 +14,7 @@ class Theme implements ThemeContract
 
 	protected $basePath;
 	protected $currentGroup;
+	protected $app;
 
 	/**
 	 * Array of theme per group ['group1'=>['theme1','theme2']]
@@ -26,9 +28,10 @@ class Theme implements ThemeContract
 	 */
 	protected $currentTheme = [];
 
-	public function __construct()
+	public function __construct($app)
 	{
 		$this->basePath = resource_path('themes');
+		$this->app = $app;
 	}
 
 	/**
@@ -71,6 +74,7 @@ class Theme implements ThemeContract
 
 
 		$this->currentTheme[$this->currentGroup] = $theme;
+		return $this;
 	}
 
 	public function getAllAvailablePaths()
@@ -90,6 +94,7 @@ class Theme implements ThemeContract
 	public function setBasePath($basePath)
 	{
 		$this->basePath = $basePath;
+		return $this;
 	}
 
 	/**
@@ -99,6 +104,7 @@ class Theme implements ThemeContract
 	public function setCurrentGroup($group)
 	{
 		$this->currentGroup = $group;
+		return $this;
 	}
 
 	/**
@@ -119,6 +125,7 @@ class Theme implements ThemeContract
 	public function setThemes($group, $themes)
 	{
 		$this->themes[$group] = $themes;
+		return $this;
 	}
 
 	public function getCurrentGroup()
@@ -126,4 +133,26 @@ class Theme implements ThemeContract
 		return $this->currentGroup;
 	}
 
+	public function override()
+	{
+		if($this->app['files']->exists(config_path('theme.php'))) {
+			$basePath = config('theme.basePath');
+			$this->setBasePath($basePath);
+			$themes = array_keys(config('theme.themes'));
+			foreach($themes as $group => $theme) {
+				$this->setThemes($group, $theme);
+			}
+			$currentGroup = config('theme.current_group');
+			if(is_null($this->getCurrentGroup()))
+				$this->setCurrentGroup($currentGroup);
+			if(is_null($this->getCurrentTheme($this->getCurrentGroup()))) {
+				$currentTheme = config('theme.current_theme');
+				$this->set($currentTheme[$this->getCurrentGroup()],
+						$this->getCurrentGroup());
+			}
+		}
+		$paths = $this->getAllAvailablePaths();
+		$finder =  new FileViewFinder($this->app['files'], $paths);
+		$this->app['view']->setFinder($finder);
+	}
 }
