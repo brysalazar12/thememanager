@@ -26,14 +26,14 @@ Add Facade to `config/app.php` in `aliases` section
 ```
 
 If you want static configuration you can run
-```
-php artisan vendor:publish
+```php
+artisan vendor:publish
 ```
 Check the config/theme.php for configuration
 
 If you want dynamic you can use
-```
-php Theme::set('theme_name','group_name')->override();
+```php
+Theme::set('theme_name','group_name')->override();
 ```
 
 Dynamic approach can override the static approach
