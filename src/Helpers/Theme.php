@@ -54,6 +54,8 @@ class Theme implements ThemeContract
 	 */
 	public function readAllThemes($group)
 	{
+		if(!isset($this->themes[$group]))
+			return [];
 		return $this->themes[$group];
 	}
 
