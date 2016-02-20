@@ -48,24 +48,35 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
     public function registerViewFinder()
     {
+		$this->mergeConfigFrom(__DIR__ . '/config/theme.php', 'theme');
+		$themeManager = $this->app['theme'];
+		$basePath = config('theme.basePath');
+		$themeManager->setBasePath($basePath);
+		$themes = array_keys(config('theme.themes'));
+
+		// set available themes for each group
+		foreach($themes as $group => $theme) {
+			$themeManager->setThemes($group, $theme);
+		}
+		$currentGroup = config('theme.current_group');
+
+		if(is_null($themeManager->getCurrentGroup())) {
+			$themeManager->setCurrentGroup($currentGroup);
+		}
+
+		if(is_null($themeManager->getCurrentTheme($themeManager->getCurrentGroup()))) {
+			$currentThemes = config('theme.current_theme');
+
+			// set active theme for each group
+			foreach($currentThemes as $group => $theme) {
+				$themeManager->set($theme, $group);
+			}
+			$themeManager->set($currentThemes[$currentGroup],$currentGroup);
+
+		}
+
 		$this->app->bind('view.finder',function($app){
 			$themeManager = $app['theme'];
-			if($app['files']->exists(config_path('theme.php'))) {
-				$basePath = config('theme.basePath');
-				$themeManager->setBasePath($basePath);
-				$themes = array_keys(config('theme.themes'));
-				foreach($themes as $group => $theme) {
-					$themeManager->setThemes($group, $theme);
-				}
-				$currentGroup = config('theme.current_group');
-				if(is_null($themeManager->getCurrentGroup()))
-					$themeManager->setCurrentGroup($currentGroup);
-				if(is_null($themeManager->getCurrentTheme($themeManager->getCurrentGroup()))) {
-					$currentTheme = config('theme.current_theme');
-					$themeManager->set($currentTheme[$themeManager->getCurrentGroup()],
-							$themeManager->getCurrentGroup());
-				}
-			}
 			$paths = $themeManager->getAllAvailablePaths();
 			return new FileViewFinder($app['files'], $paths);
 		});
