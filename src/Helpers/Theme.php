@@ -137,22 +137,6 @@ class Theme implements ThemeContract
 
 	public function override()
 	{
-//		$basePath = config('theme.basePath');
-//		$this->setBasePath($basePath);
-//		$themes = array_keys(config('theme.themes'));
-//		foreach($themes as $group => $theme) {
-//			$this->setThemes($group, $theme);
-//		}
-//		$currentGroup = config('theme.current_group');
-//		if(is_null($this->getCurrentGroup()))
-//			$this->setCurrentGroup($currentGroup);
-//		if(is_null($this->getCurrentTheme($this->getCurrentGroup()))) {
-//			$currentTheme = config('theme.current_theme');
-//			$this->set($currentTheme[$this->getCurrentGroup()],
-//					$this->getCurrentGroup());
-//		}
-//		dd($this);
-
 		$paths = $this->getAllAvailablePaths();
 		$finder =  new FileViewFinder($this->app['files'], $paths);
 		$this->app['view']->setFinder($finder);
