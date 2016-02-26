@@ -1,8 +1,7 @@
 # thememanager
 Laravel 5 Theme Manager
 
-[![Latest Stable Version](https://poser.pugx.org/mailgun/mailgun-php/v/stable.png)](https://packagist.org/packages/brysalazar12/thememanager)
-[![Downloads](https://poser.pugx.org/pugx/badge-poser/d/total.svg)](https://packagist.org/packages/brysalazar12/thememanager)
+[![Latest Stable Version](https://poser.pugx.org/brysalazar12/thememanager/v/stable)](https://packagist.org/packages/brysalazar12/thememanager) [![Total Downloads](https://poser.pugx.org/brysalazar12/thememanager/downloads)](https://packagist.org/packages/brysalazar12/thememanager) [![Latest Unstable Version](https://poser.pugx.org/brysalazar12/thememanager/v/unstable)](https://packagist.org/packages/brysalazar12/thememanager) [![License](https://poser.pugx.org/brysalazar12/thememanager/license)](https://packagist.org/packages/brysalazar12/thememanager)
 
 Via Composer
 ```
