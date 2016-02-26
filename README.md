@@ -1,5 +1,6 @@
 # thememanager
 Laravel 5 Theme Manager
+
 [![Latest Stable Version](https://poser.pugx.org/mailgun/mailgun-php/v/stable.png)](https://packagist.org/packages/brysalazar12/thememanager)
 [![Downloads](https://poser.pugx.org/pugx/badge-poser/d/total.svg)](https://packagist.org/packages/brysalazar12/thememanager)
 
