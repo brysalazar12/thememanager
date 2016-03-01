@@ -45,7 +45,7 @@ Dynamic approach can override the static approach
 By default the theme path is located in resources/themes
 
 Add this to composer.json to automatically install your module in app/Modules/{$name}
-```
+```json
     "extra": {
 		"installer-types": ["laravel-theme"],
 		"installer-paths": {
