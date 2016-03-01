@@ -42,9 +42,9 @@ Theme::set('theme_name','group_name')->override();
 
 Dynamic approach can override the static approach
 
-By default the theme path is located in resources/themes
+By default the theme path is located in **resources/themes**
 
-Add this to composer.json to automatically install your theme in resources/themes/{$name}
+Add this to composer.json to automatically install your theme in **resources/themes/{$name}**
 ```json
     "extra": {
 		"installer-types": ["laravel-theme"],
