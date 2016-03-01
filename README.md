@@ -55,7 +55,7 @@ Add this to composer.json to automatically install your module in app/Modules/{$
 ```
 
 If you are theme author use this template in you composer
-```
+```json
     {
     	"name": "your composer/theme name",
     	"type": "laravel-theme",
