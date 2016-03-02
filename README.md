@@ -2,8 +2,6 @@
 Laravel 5 Theme Manager
 
 [![Latest Stable Version](https://poser.pugx.org/brysalazar12/thememanager/v/stable)](https://packagist.org/packages/brysalazar12/thememanager) [![Total Downloads](https://poser.pugx.org/brysalazar12/thememanager/downloads)](https://packagist.org/packages/brysalazar12/thememanager) [![Latest Unstable Version](https://poser.pugx.org/brysalazar12/thememanager/v/unstable)](https://packagist.org/packages/brysalazar12/thememanager) [![License](https://poser.pugx.org/brysalazar12/thememanager/license)](https://packagist.org/packages/brysalazar12/thememanager)
-[![Monthly Downloads](https://poser.pugx.org/brysalazar12/thememanager/d/monthly)](https://packagist.org/packages/brysalazar12/thememanager)
-[![Daily Downloads](https://poser.pugx.org/brysalazar12/thememanager/d/daily)](https://packagist.org/packages/brysalazar12/thememanager)
 
 Via Composer
 ```
