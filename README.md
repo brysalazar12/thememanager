@@ -48,18 +48,18 @@ resources
 	└── themes
 		└── [backend] -> group_name
 			└── [bootstrap] -> theme_name
-				└── views
-				└── assets
+					└── views
+					└── assets
 		└── [frontend]
 			└── [foundation]
-				└── views
-				└── assets
+					└── views
+					└── assets
 			
 public
 └──themes
 	└── [backend]
 		└── [bootstrap]
-			└── assets
+				└── assets
 ```			
 
 Add this to composer.json to automatically install your theme in **resources/themes/{$name}**
