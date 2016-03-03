@@ -45,14 +45,20 @@ By default the theme path is located in **resources/themes**
 Folder structure
 ```
 resources
-└── themes
+	└── themes
+		└── [backend] -> group_name
+			└── [bootstrap] -> theme_name
+				└── views
+				└── assets
+		└── [frontend]
+			└── [foundation]
+				└── views
+				└── assets
+			
+public
+└──themes
 	└── [backend]
 		└── [bootstrap]
-			└── views
-			└── assets
-	└── [frontend]
-		└── [foundation]
-			└── views
 			└── assets
 ```			
 
