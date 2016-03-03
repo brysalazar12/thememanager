@@ -56,10 +56,10 @@ resources
 					└── assets
 			
 public
-└──themes
-	└── [backend]
-		└── [bootstrap]
-				└── assets
+	└──themes
+		└── [backend]
+			└── [bootstrap]
+					└── assets
 ```			
 
 Add this to composer.json to automatically install your theme in **resources/themes/{$name}**
