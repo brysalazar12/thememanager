@@ -42,6 +42,20 @@ Dynamic approach can override the static approach
 
 By default the theme path is located in **resources/themes**
 
+Folder structure
+```
+resources
+└── themes
+	└── [backend]
+		└── [bootstrap]
+			└── views
+			└── assets
+	└── [frontend]
+		└── [foundation]
+			└── views
+			└── assets
+```			
+
 Add this to composer.json to automatically install your theme in **resources/themes/{$name}**
 ```json
     "extra": {
