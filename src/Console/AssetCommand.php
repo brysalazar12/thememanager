@@ -1,8 +1,6 @@
 <?php namespace Mirage\ThemeManager\Console;
 
 use Illuminate\Console\Command;
-
-use Mirage\ThemeManager\Facades\ThemeFacade;
 use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
 
 /**
