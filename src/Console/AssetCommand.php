@@ -18,7 +18,6 @@ class AssetCommand extends Command
 
 	public function handle()
 	{
-		$theme = app(ThemeContract::class);
 		$themeName = $this->argument('themename');
 		$groupName = $this->argument();
 	}
