@@ -25,7 +25,6 @@ class AssetCommand extends Command
 
 	protected function getOptions()
 	{
-//		parent::getOptions();
 		return [];
 	}
 }
