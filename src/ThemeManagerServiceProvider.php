@@ -4,7 +4,6 @@ use Illuminate\Support\ServiceProvider;
 use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
 use Mirage\ThemeManager\Helpers\Theme;
 use Illuminate\View\FileViewFinder;
-use Illuminate\View\Factory;
 use Mirage\ThemeManager\Events\ThemeViewEvent;
 
 /**
