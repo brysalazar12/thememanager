@@ -1,6 +1,7 @@
 <?php namespace Mirage\ThemeManager\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Mirage\ThemeManager\Helpers\Contracts\ThemeInterface;
 /**
  * Description of ThemeFacade
  *
@@ -8,5 +9,5 @@ use Illuminate\Support\Facades\Facade;
  */
 class ThemeFacade extends Facade
 {
-	protected static function getFacadeAccessor() { return 'theme'; }
+	protected static function getFacadeAccessor() { return ThemeInterface::class; }
 }

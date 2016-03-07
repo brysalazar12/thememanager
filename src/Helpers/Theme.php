@@ -1,6 +1,6 @@
 <?php namespace Mirage\ThemeManager\Helpers;
 
-use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
+use Mirage\ThemeManager\Helpers\Contracts\ThemeInterface;
 use Illuminate\View\FileViewFinder;
 
 /**
@@ -8,7 +8,7 @@ use Illuminate\View\FileViewFinder;
  *
  * @author Bryan Salazar
  */
-class Theme implements ThemeContract
+class Theme implements ThemeInterface
 {
 	protected $themeBasePath;
 

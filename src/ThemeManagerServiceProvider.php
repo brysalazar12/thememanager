@@ -1,7 +1,7 @@
 <?php namespace Mirage\ThemeManager;
 
 use Illuminate\Support\ServiceProvider;
-use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
+use Mirage\ThemeManager\Helpers\Contracts\ThemeInterface;
 use Mirage\ThemeManager\Helpers\Theme;
 use Illuminate\View\FileViewFinder;
 
@@ -30,18 +30,14 @@ class ThemeManagerServiceProvider extends ServiceProvider
 
 	protected function registerThemeManager()
 	{
-		$this->app->singleton('theme',function($app){
-			return $app->make(ThemeContract::class);
-		});
-
-		$this->app->singleton(ThemeContract::class, function($app){
+		$this->app->singleton(ThemeInterface::class, function($app){
 			return new Theme($app);
 		});
 	}
 
 	public function provides()
 	{
-		return ['theme'];
+		return [ThemeInterface::class];
 	}
 
     public function registerViewFinder()

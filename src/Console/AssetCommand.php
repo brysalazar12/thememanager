@@ -1,7 +1,7 @@
 <?php namespace Mirage\ThemeManager\Console;
 
 use Illuminate\Console\Command;
-use Mirage\ThemeManager\Helpers\Contracts\ThemeContract;
+use Mirage\ThemeManager\Helpers\Contracts\ThemeInterface;
 
 /**
  * Publish assets to public
@@ -19,7 +19,7 @@ class AssetCommand extends Command
 
 		$themeName = $this->argument('themename');
 		$groupName = $this->argument('groupname');
-		$theme = app(ThemeContract::class);
+		$theme = app(ThemeInterface::class);
 		$theme->set($themeName,$groupName);
 	}
 

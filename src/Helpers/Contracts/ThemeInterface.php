@@ -4,7 +4,7 @@
  *
  * @author Bryan Salazar
  */
-interface ThemeContract
+interface ThemeInterface
 {
 	public function set($theme);
 
