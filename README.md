@@ -1,7 +1,7 @@
 # thememanager
 Laravel 5 Theme Manager
 
- https://img.shields.io/badge/<Laravel>-<5.1.*|5.2.*>-<GREEN>.svg 
+https://img.shields.io/badge/Laravel-5.1.*|5.2.*-blue.svg
 [![Latest Stable Version](https://poser.pugx.org/brysalazar12/thememanager/v/stable)](https://packagist.org/packages/brysalazar12/thememanager) [![Total Downloads](https://poser.pugx.org/brysalazar12/thememanager/downloads)](https://packagist.org/packages/brysalazar12/thememanager) [![Latest Unstable Version](https://poser.pugx.org/brysalazar12/thememanager/v/unstable)](https://packagist.org/packages/brysalazar12/thememanager) [![License](https://poser.pugx.org/brysalazar12/thememanager/license)](https://packagist.org/packages/brysalazar12/thememanager)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fb9facad-f326-4101-9b18-27ddce03c115/small.png)](https://insight.sensiolabs.com/projects/fb9facad-f326-4101-9b18-27ddce03c115)
 [![GitHub issues](https://img.shields.io/github/issues/brysalazar12/thememanager.svg)](https://github.com/brysalazar12/thememanager/issues)
