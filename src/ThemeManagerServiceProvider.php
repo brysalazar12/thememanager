@@ -70,7 +70,7 @@ class ThemeManagerServiceProvider extends ServiceProvider
 		}
 
 		$this->app->bind('view.finder',function($app){
-			$themeManager = $app['theme'];
+			$themeManager = $app[ThemeInterface::class];
 			$paths = $themeManager->getAllAvailablePaths();
 			return new FileViewFinder($app['files'], $paths);
 		});
