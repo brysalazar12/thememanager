@@ -43,7 +43,7 @@ class ThemeManagerServiceProvider extends ServiceProvider
     public function registerViewFinder()
     {
 		$this->mergeConfigFrom(__DIR__ . '/config/theme.php', 'theme');
-		$themeManager = $this->app['theme'];
+		$themeManager = $this->app[ThemeInterface::class];
 		$basePath = config('theme.basePath');
 		$themeManager->setBasePath($basePath);
 		$themes = array_keys(config('theme.themes'));
