@@ -30,7 +30,7 @@ class Theme implements ThemeInterface
 
 	public function __construct($app)
 	{
-		$this->basePath = resource_path('themes');
+		$this->basePath = base_path('resources/themes');
 		$this->app = $app;
 	}
 

@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'basePath'	=> resource_path('themes'),
+	'basePath'	=> base_path('resources/themes'),
 	'themes'	=>	[
 		'admin'	=>	['bootstrap','jquerymobile'],
 		'frontend' => ['bootstrap','flat','foundation']
