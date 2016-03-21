@@ -6,6 +6,7 @@ Laravel 5 Theme Manager
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fb9facad-f326-4101-9b18-27ddce03c115/small.png)](https://insight.sensiolabs.com/projects/fb9facad-f326-4101-9b18-27ddce03c115)
 
 [![GitHub issues](https://img.shields.io/github/issues/brysalazar12/thememanager.svg)](https://github.com/brysalazar12/thememanager/issues)
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/brysalazar12/thememanager.svg)](http://isitmaintained.com/project/brysalazar12/thememanager "Percentage of issues still open")
 
 Via Composer
 ```
