@@ -8,6 +8,7 @@ Laravel 5 Theme Manager
 [![GitHub issues](https://img.shields.io/github/issues/brysalazar12/thememanager.svg)](https://github.com/brysalazar12/thememanager/issues)
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/brysalazar12/thememanager.svg)](http://isitmaintained.com/project/brysalazar12/thememanager "Percentage of issues still open")
 [![StyleCI](https://styleci.io/repos/51733841/shield)](https://styleci.io/repos/51733841)
+<a href="https://styleci.io/repos/51733841"><img src="https://styleci.io/repos/51733841/shield" alt="StyleCI"></a>
 
 
 Via Composer
