@@ -1,3 +1,4 @@
+
 <?php 
 
 namespace Mirage\ThemeManager\Console;
@@ -6,6 +7,7 @@ use Illuminate\Console\Command;
 use Mirage\ThemeManager\Helpers\Contracts\ThemeInterface;
 
 /**
+ * 
  * Publish assets to public
  *
  * @author Bryan Salazar
@@ -30,4 +32,3 @@ class AssetCommand extends Command
 		return [];
 	}
 }
-
