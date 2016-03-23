@@ -13,6 +13,7 @@ use Mirage\ThemeManager\Helpers\Contracts\ThemeInterface;
  */
 class AssetCommand extends Command
 {
+	
 	protected $signature = 'assets:publish {themename} {--group_name= : Group name where the theme belong.}';
 
 	protected $description = 'Publish the assets to public directory.';
