@@ -1,13 +1,19 @@
-<?php namespace Mirage\ThemeManager\Facades;
+<?php
+
+namespace Mirage\ThemeManager\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Mirage\ThemeManager\Helpers\Contracts\ThemeInterface;
+
 /**
- * Description of ThemeFacade
+ * Description of ThemeFacade.
  *
  * @author Bryan Salazar
  */
 class ThemeFacade extends Facade
 {
-	protected static function getFacadeAccessor() { return ThemeInterface::class; }
+    protected static function getFacadeAccessor()
+    {
+        return ThemeInterface::class;
+    }
 }
