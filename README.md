@@ -10,6 +10,7 @@ Laravel 5 Theme Manager
 [![StyleCI](https://styleci.io/repos/51733841/shield)](https://styleci.io/repos/51733841)
 
 
+
 Via Composer
 ```
 composer require brysalazar12/thememanager
